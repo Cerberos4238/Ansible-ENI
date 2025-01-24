@@ -1,0 +1,69 @@
+---
+- name: SSH secure connexion
+  hosts: all
+  become: true
+  vars:
+    allowed_user: "ansible"
+    allowed_host: "10.105.13.1"
+
+  tasks:
+    - name: sshd_config backup
+      copy:
+        src: /etc/ssh/sshd_config
+        dest: /etc/ssh/sshd_config.bak
+        remote_src: true
+
+    - name: SSH for only ansible user
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: "^AllowUsers"
+        line: "AllowUsers {{ allowed_user}}@{{ allowed_host }}"
+        create: yes
+
+    - name: Password deactivation
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: "^PasswordAuthentication"
+        line: "PasswordAuthentication no"
+        create: yes
+
+    - name: pubkey authentication
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: "^PubkeyAuthentication"
+        line: "PubkeyAuthentication yes"
+        create: yes
+
+    - name: .ssh directory creation for ansible user
+      file:
+        path: /home/ansible/.ssh
+        state: directory
+        owner: ansible
+        group: ansible
+        mode: '0700'
+
+    - name: Ansible pubkey copy
+      copy:
+        src: /home/ansible/.ssh/id_rsa.pub
+        dest: /home/ansible/.ssh/authorized_keys
+        owner: ansible
+        group: ansible
+        mode: '0600'
+
+    - name: SSH service reboot
+      service:
+        name: sshd
+        state: restarted
+
+    - name: Password deactivation for ansible user
+      user:
+        user: ansible
+        password_lock: true
+
+
+
+    - name: bind9 installation
+      apt:
+        update_cache: yes
+        name: bind9
+        state: present
