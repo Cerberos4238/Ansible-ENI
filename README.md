@@ -2,8 +2,6 @@
 
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)  [![forthebadge](http://forthebadge.com/images/badges/powered-by-electricity.svg)](http://forthebadge.com)
 
-Dans le cadre de mes Etudes à l'ENI, nous avons réalisés un playbook de paramétrages de postes debian.
-
 ## Pour commencer
 
 il faut avoir des connaissances de base sur:
