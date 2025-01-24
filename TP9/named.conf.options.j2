@@ -1,0 +1,11 @@
+options {
+	directory "/var/cache/bind"
+
+{% for nameserver in ansible_dns.nameservers %}
+              {{ nameserver }}
+{% endfor %}
+
+dnssec-validation no;
+listen-on-v6 { any; };
+	};
+
