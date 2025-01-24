@@ -19,9 +19,14 @@ Ce qu'il est requis pour commencer avec votre projet:
 
 ### Installation
 
-Installer ansible sur le srv-ansible:
--``dnf install oracle-epel-release-el8 ``
--``dnf install ansible ``
+Installer ansible avec dnf:
+-``sudo dnf install oracle-epel-release-el8 ``
+-``sudo dnf install ansible ``
+Avec apt:
+-``sudo apt-add-repository ppa:ansible/ansible``
+-``sudo apt update``
+-``sudo apt install ansible``
+
 
 Paramétrage du user "ansible"
 -sur le srv-ansible
