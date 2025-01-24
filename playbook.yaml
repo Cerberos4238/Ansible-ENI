@@ -17,7 +17,7 @@
       lineinfile:
         path: /etc/ssh/sshd_config
         regexp: "^AllowUsers"
-        line: "AllowUsers {{ allowed_user}}@{{ allowed_host }}"
+        line: "AllowUsers {{ allowed_user }}@{{ allowed_host }}"
         create: yes
 
     - name: Password deactivation
