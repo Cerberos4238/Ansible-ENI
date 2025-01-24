@@ -2,7 +2,7 @@
 
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)  [![forthebadge](http://forthebadge.com/images/badges/powered-by-electricity.svg)](http://forthebadge.com)
 
-Dans le cadre de mes Etudes à l'ENI, ous avons réalisés un playbook de paramétrage de postes debian.
+Dans le cadre de mes Etudes à l'ENI, nous avons réalisés un playbook de paramétrages de postes debian.
 
 ## Pour commencer
 
@@ -12,7 +12,7 @@ il faut avoir des connaissances de base sur:
 
 ### Pré-requis
 
-Ce qu'il est requis pour commencer avec votre projet:
+Ce qui est requis pour commencer avec votre projet:
 
 - 1 serveur oracle-linux 8 (srv-ansible)
 - 2 serveur debian (srv-master & srv-slave)
